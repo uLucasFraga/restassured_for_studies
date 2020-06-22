@@ -11,13 +11,17 @@ jobs:
         node-version: [12.x]
         java-version: [8]
 
+  test:
+    name: integration-tests
+    runs-on: ubuntu-18.04
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v1
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: setup-serverest-api
-        run: npx serverest -t 10000
-      - name: build-and-tests
-        run: mvn clean install
+          java-version: ${{ matrix.java-version }}
+      - name: build maven package
+        run: mvn clean install -DskipTests
+      - name: maven tests
+        run: mvn test
