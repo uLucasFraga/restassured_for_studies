@@ -8,8 +8,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 10x]
-        java-version: [8, 11, 14]
+        node-version: [12.x]
+        java-version: [8]
 
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +19,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: setup-serverest-api
         run: npx serverest -t 10000
+      - name: build-and-tests
+        run: mvn clean install
         env:
           URL_APP: ${{ secrets.URL_APP }}
           CI: true
