@@ -8,7 +8,6 @@ jobs:
       operating-system: [ubuntu-latest, windows-latest, macos-latest]
       node-version: [12.x, 10.x, 8.x]
       java-version: [1.x, 11.x.x, 14.x.x]
-    runs-on: ${{ matrix.operating-system }}
 
   setup-server-api:
     jobs:
@@ -30,8 +29,8 @@ jobs:
 
   integration-tests:
     runs-on: ${{ matrix.operating-system }}
-
     needs: [setup-server-api]
+
     steps:
       - name: clean-and-install-dependencies
         run: mvn clean install -DskipTests
