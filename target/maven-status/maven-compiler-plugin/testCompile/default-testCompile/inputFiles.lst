@@ -1,8 +1,0 @@
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/sample/serverest/users/PostUsers.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/sample/serverest/login/PostLogin.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/commons/Hooks.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/runner/AllTests.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/sample/serverest/carts/GetCarts.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/commons/HandleProperties.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/sample/serverest/products/GetProducts.java
-/home/lucas/Documents/personal/restassured_for_beginners/src/test/java/sample/serverest/carts/DeleteCarts.java
