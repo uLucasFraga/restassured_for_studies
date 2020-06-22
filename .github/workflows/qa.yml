@@ -18,7 +18,8 @@ jobs:
         run: npx serverest -t 10000
 
   test:
-    runs-on: ${{ matrix.operating-system }}
+    build:
+      runs-on: ${{ matrix.operating-system }}
       strategy:
         matrix:
           operating-system: [ubuntu-latest, windows-latest, macos-latest]
