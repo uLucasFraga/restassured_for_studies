@@ -1,36 +1,31 @@
-name: QA CI
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: ${{ matrix.operating-system }}
-    strategy:
-      matrix:
-        operating-system: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [12.x, 10.x]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: up-serverest
-        run: npx serverest -t 10000
+name: QA CI/CD
 
-  test:
+on: [push, pull_request]
+
+jobs:
+  build_and_test:
+    matrix:
+      operating-system: [ubuntu-latest, windows-latest, macos-latest]
+      node-version: [12.x, 10.x, 8.x]
+      java-version: [1.x, 11.x.x, 14.x.x]
     runs-on: ${{ matrix.operating-system }}
-      strategy:
-        matrix:
-          operating-system: [ubuntu-latest, windows-latest, macos-latest]
-          java-version: [1.x, 11.x.x, 14.x.x]
+
+  setup-server-api:
     steps:
       - name: Checkout
       uses: actions/checkout@v2
-      with:
-        java-version: {{ matrix.java-version }}
-      - name: maven clean and install
-      run: mvn clean install -DskipTests
+      - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: up-serverest
+      run: npx serverest -t 10000
+
+  integration-tests:
+    runs-on: ${{ matrix.operating-system }}
+    needs: [setup-server-api]
+      - name: clean-and-install-dependencies
+        run: mvn clean install -DskipTests
+
       - name: integration-tests
-      run: mvn test
-      env:
-        APP_URL: ${{ secrets.APP_URL }}
+          run: mvn tests
