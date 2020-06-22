@@ -17,11 +17,11 @@ jobs:
         steps:
           - uses: actions/checkout@v2
           - name: Use Node.js ${{ matrix.node-version }}
-          - uses: actions/setup-node@v1
+            uses: actions/setup-node@v1
             with:
               node-version: ${{ matrix.node-version }}
           - name: setup-serverest-api
-          - run: npx serverest -t 100000
+            run: npx serverest -t 100000
 
   integration-tests:
     jobs:
@@ -32,10 +32,10 @@ jobs:
         steps:
           - uses: actions/checkout@v2
           - name: setup JDK
-          - uses: actions/setup-java@v1
+            uses: actions/setup-java@v1
             with:
               java-version: ${{ matrix.java-version }}
           - name: clean-and-install-dependencies
-          - run: mvn clean install -DskipTests
+            run: mvn clean install -DskipTests
           - name: integration-tests
-          - run: mvn test
+            run: mvn test
