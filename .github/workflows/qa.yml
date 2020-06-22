@@ -23,9 +23,10 @@ jobs:
 
   integration-tests:
     runs-on: ${{ matrix.operating-system }}
+
     needs: [setup-server-api]
+    steps:
       - name: clean-and-install-dependencies
         run: mvn clean install -DskipTests
-
       - name: integration-tests
           run: mvn tests
