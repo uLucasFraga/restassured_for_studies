@@ -101,6 +101,10 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 `mvn clean install`
 
+> To clean the project, install the dependencies and skipp all tests
+
+`mvn clean install -DskipTests`
+
 > To run the tests via IDE (IntelliJ)
 
 Right click on project/class on _restassured_for_beginners_ > _Run 'AllTests'_ or _CTRL+F5_

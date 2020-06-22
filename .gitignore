@@ -303,3 +303,5 @@ mvnw**
 **/.settings/
 **/logs/
 **/.clover/
+!.config.properties.example
+.config.properties
