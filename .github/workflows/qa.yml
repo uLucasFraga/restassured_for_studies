@@ -11,15 +11,22 @@ jobs:
     runs-on: ${{ matrix.operating-system }}
 
   setup-server-api:
-    steps:
-      - name: Checkout
-      uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: up-serverest
-      run: npx serverest -t 10000
+    jobs:
+      build:
+        runs-on: ${{ matrix.operating-system }}
+
+        strategy:
+          matrix:
+            node-version: ${{ matrix.node-versionm }}
+
+        steps:
+          - uses: actions/checkout@v2
+          - name: Use Node.js ${{ matrix.node-version }}
+            uses: actions/setup-node@v1
+            with:
+              node-version: ${{ matrix.node-version }}
+          - name: setup-serverest-api
+            run: npx serverest -t 100000
 
   integration-tests:
     runs-on: ${{ matrix.operating-system }}
