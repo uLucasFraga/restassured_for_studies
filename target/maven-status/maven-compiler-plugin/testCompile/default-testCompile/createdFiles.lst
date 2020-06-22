@@ -1,0 +1,8 @@
+commons/Hooks.class
+sample/serverest/carts/GetCarts.class
+sample/serverest/carts/DeleteCarts.class
+commons/HandleProperties.class
+runner/AllTests.class
+sample/serverest/products/GetProducts.class
+sample/serverest/login/PostLogin.class
+sample/serverest/users/PostUsers.class

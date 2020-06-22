@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: runner.AllTests
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.004 sec <<< FAILURE! - in runner.AllTests
+getCarts(sample.serverest.carts.GetCarts)  Time elapsed: 1.051 sec  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <202> but was <200>.
+
+	at sample.serverest.carts.GetCarts.getCarts(GetCarts.java:16)
+
