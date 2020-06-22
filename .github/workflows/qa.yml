@@ -21,7 +21,3 @@ jobs:
         run: npx serverest -t 10000
       - name: build-and-tests
         run: mvn clean install
-        env:
-          URL_APP: ${{ secrets.URL_APP }}
-          CI: true
-          
