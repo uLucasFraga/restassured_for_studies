@@ -24,3 +24,4 @@ jobs:
         env:
           URL_APP: ${{ secrets.URL_APP }}
           CI: true
+          
