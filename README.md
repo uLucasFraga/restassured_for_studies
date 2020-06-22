@@ -1,5 +1,7 @@
 # RESTASSURED-FOR-BEGINNERS
 
+![.github/workflows/qa.yml](https://github.com/uLucasFraga/restassured_for_beginners/workflows/.github/workflows/qa.yml/badge.svg?branch=master&event=push)
+
 Repository with automated test for API using the frameworks: restassured and junit
 
 > Testing and validating REST services in Java with [RESTASSURED:](https://github.com/rest-assured/rest-assured)
