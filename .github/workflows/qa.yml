@@ -11,7 +11,7 @@ jobs:
         java-version: [8, 11, 14]
         name: Java ${{ matrix.java-version }} build
           steps:
-            - uses: actions/checkout@master
+            - uses: actions/checkout@v2
             - name: setup-jdk
             uses: actions/setup-java@v1
               with:
@@ -23,6 +23,7 @@ jobs:
       build:
         runs-on: ${{ matrix.operating-system }}
 
+        name: Node.JS ${{ matrix.node-version }}
           steps:
             - uses: actions/checkout@v2
             - name: Use Node.js ${{ matrix.node-version }}
@@ -42,9 +43,9 @@ jobs:
             - uses: actions/checkout@v2
             - name: setup JDK
             uses: actions/setup-java@v1
-             with:
+              with:
                 java-version: ${{ matrix.java-version }}
-            - name: clean-and-install-dependencies
+              - name: clean-and-install-dependencies
             run: mvn clean install -DskipTests
-            - name: integration-tests
+              - name: integration-tests
             run: mvn test
