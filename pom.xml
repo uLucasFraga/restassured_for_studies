@@ -7,7 +7,7 @@
     <groupId>com.restassured.example</groupId>
     <artifactId>restassured-sample</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>RESTASSURED-FOR-BEGINNERS</name>
+    <name>RESTASSURED-FOR-STUDIES</name>
     <description>sample project with restassured for API tests in Java</description>
 
     <properties>
