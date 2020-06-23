@@ -1,6 +1,6 @@
 # RESTASSURED-FOR-BEGINNERS
 
-![.github/workflows/qa.yml](https://github.com/uLucasFraga/restassured_for_beginners/workflows/.github/workflows/qa.yml/badge.svg?branch=master&event=push)
+![QA CI/CD](https://github.com/uLucasFraga/restassured_for_beginners/workflows/QA%20CI/CD/badge.svg?branch=master&event=push)
 
 Repository with automated test for API using the frameworks: restassured and junit
 
