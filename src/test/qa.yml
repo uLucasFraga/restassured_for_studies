@@ -1,15 +1,13 @@
-name: QA CI/CD
+name: Feature Branch
 
 on: [push]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      node-version: [12.x]
+      java-version: [8]
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-        java-version: [8]
+jobs:
 
   test:
     name: integration-tests
@@ -21,7 +19,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java-version }}
-      - name: build maven package
+      - name: maven install
         run: mvn clean install -DskipTests
       - name: maven tests
         run: mvn test
