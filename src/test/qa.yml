@@ -1,0 +1,26 @@
+name: Feature Branch
+
+on: [push]
+
+  strategy:
+    matrix:
+      node-version: [12.x]
+      java-version: [8]
+
+jobs:
+
+  test:
+    name: integration-tests
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java-version }}
+      - name: maven install
+        run: mvn clean install -DskipTests
+      - name: maven tests
+        run: mvn test
+        
