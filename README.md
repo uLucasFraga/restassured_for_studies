@@ -1,6 +1,6 @@
-# RESTASSURED-FOR-BEGINNERS
+# RESTASSURED-FOR-STUDIES
 
-![QA CI/CD](https://github.com/uLucasFraga/restassured_for_beginners/workflows/QA%20CI/CD/badge.svg?branch=develop)
+![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg?branch=develop)
 
 Repository with automated test for API using the frameworks: restassured and junit
 
@@ -52,7 +52,7 @@ Create a _maven_ project or use the _pom.xml_ file already created to download/i
 
 - Clone this repo to your local machine using http or ssh, for example:
 
-`git clone https://github.com/uLucasFraga/restassured_for_beginners.git`
+`git clone https://github.com/uLucasFraga/restassured_for_studies.git`
 
 - Install all dependencies (pom.xml) mvn install and run tests:
 
@@ -109,7 +109,7 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 > To run the tests via IDE (IntelliJ)
 
-Right click on project/class on _restassured_for_beginners_ > _Run 'AllTests'_ or _CTRL+F5_
+Right click on project/class on _restassured_for_studies_ > _Run 'AllTests'_ or _CTRL+F5_
 
 ---
 
