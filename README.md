@@ -41,9 +41,6 @@ Repository with automated test for API using the frameworks: restassured and jun
 ##### Install Maven
 - Mac, Windows and Linux: https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-- Windows:
-https://www.mkyong.com/maven/how-to-install-maven-in-windows/
-
 Create a _maven_ project or use the _pom.xml_ file already created to download/install its dependencies
 
 ## Installation
@@ -116,8 +113,8 @@ Right click on project/class on _restassured_for_studies_ > _Run 'AllTests'_ or 
 ## Support
 
 - Twitter at <a href="https://twitter.com/uLucasFraga" target="_blank">`@ulucasfraga`</a>
-- Facebook at <a href="https://www.facebook.com/lucass.fragaa" target="_blank">`Facebook: Lucas Fraga`</a>
-- Linkedin at <a href="https://www.linkedin.com/in/ulucasfraga" target="_blank">`Linkedin: Lucas Fraga`</a>
+- Facebook at <a href="https://www.facebook.com/lucass.fragaa" target="_blank">`my_facebook`</a>
+- Linkedin at <a href="https://www.linkedin.com/in/ulucasfraga" target="_blank">`my_linkedin`</a>
 
 - E-mail: `lucass.fragaa@gmail.com`
 - Skype: `live:lucass.fragaa`
