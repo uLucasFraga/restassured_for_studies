@@ -1,6 +1,6 @@
-package sample.serverest.carts;
+package integrations.serverest.carts;
 
-import commons.HandleProperties;
+import integrations.commons.HandleProperties;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 

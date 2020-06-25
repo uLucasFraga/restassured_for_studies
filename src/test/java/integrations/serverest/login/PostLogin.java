@@ -1,6 +1,6 @@
-package sample.serverest.login;
+package integrations.serverest.login;
 
-import commons.HandleProperties;
+import integrations.commons.HandleProperties;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
