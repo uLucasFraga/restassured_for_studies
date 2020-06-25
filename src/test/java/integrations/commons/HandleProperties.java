@@ -1,4 +1,4 @@
-package commons;
+package integrations.commons;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package sample.serverest.users;
+package integrations.serverest.users;
 
 import com.github.javafaker.Faker;
-import commons.HandleProperties;
+import integrations.commons.HandleProperties;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.json.simple.JSONObject;

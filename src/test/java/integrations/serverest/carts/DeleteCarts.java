@@ -1,11 +1,11 @@
-package sample.serverest.carts;
+package integrations.serverest.carts;
 
-import commons.HandleProperties;
-import commons.Hooks;
+import integrations.commons.HandleProperties;
+import integrations.commons.Hooks;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
-import sample.serverest.login.PostLogin;
+import integrations.serverest.login.PostLogin;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;

@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.restassured.example</groupId>
-    <artifactId>restassured-sample</artifactId>
+    <artifactId>restassured-for-studies</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>RESTASSURED-FOR-STUDIES</name>
-    <description>sample project with restassured for API tests in Java</description>
+    <description>sample project with restassured for API tests and json-schema-validator for "contracts" in Java</description>
 
     <properties>
         <java.version>1.8</java.version>
