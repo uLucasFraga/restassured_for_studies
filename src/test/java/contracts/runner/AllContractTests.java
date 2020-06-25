@@ -16,4 +16,4 @@ import integrations.serverest.users.PostUsers;
   DeleteCarts.class,
   PostUsers.class,
 })
-public class AllTests {}
+public class AllIntegrationTests {}
