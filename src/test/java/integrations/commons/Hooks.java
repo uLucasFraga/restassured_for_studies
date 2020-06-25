@@ -1,6 +1,6 @@
-package commons;
+package integrations.commons;
 
-import sample.serverest.login.PostLogin;
+import integrations.serverest.login.PostLogin;
 
 public class Hooks {
 

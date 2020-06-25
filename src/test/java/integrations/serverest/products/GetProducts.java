@@ -1,6 +1,6 @@
-package sample.serverest.products;
+package integrations.serverest.products;
 
-import commons.HandleProperties;
+import integrations.commons.HandleProperties;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 

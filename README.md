@@ -95,11 +95,19 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 `npx serverest -t 10000`
 
-> Run tests
+> Run all integration tests
 
-`mvn test`
+`mvn -Dtest=AllIntegrationTests test `
 
-> To clean the project, install the dependencies and run all
+> Run all contract tests
+
+`mvn -Dtest=AllContractTests test `
+
+> Run a single tests
+
+`mvn -Dtest={your_class}#{your_test} test`
+
+> To clean the project and install the dependencies
 
 `mvn clean install`
 
