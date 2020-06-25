@@ -114,7 +114,7 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 > To run the tests via IDE (IntelliJ)
 
-Right click on project/class on _restassured_for_studies_ > _Run 'AllTests'_ or _CTRL+F5_
+Right click on project/class on **restassured_for_studies > Run 'AllTests'** or **CTRL+F5**
 
 ---
 
