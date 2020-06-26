@@ -104,11 +104,11 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 `mvn -Dtest={your_class}#{your_test} test`
 
-> To clean the project and install the dependencies
+> To clean the project, install the dependencies and run all tests
 
 `mvn clean install`
 
-> To clean the project, install the dependencies and skipp all tests
+> To clean the project, install the dependencies and skip all tests
 
 `mvn clean install -DskipTests`
 
