@@ -1,6 +1,6 @@
-# RESTASSURED-FOR-BEGINNERS
+# RESTASSURED-FOR-STUDIES
 
-![QA CI/CD](https://github.com/uLucasFraga/restassured_for_beginners/workflows/QA%20CI/CD/badge.svg?branch=master&event=push)
+![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg?branch=master)
 
 Repository with automated test for API using the frameworks: restassured and junit
 
@@ -41,9 +41,6 @@ Repository with automated test for API using the frameworks: restassured and jun
 ##### Install Maven
 - Mac, Windows and Linux: https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-- Windows:
-https://www.mkyong.com/maven/how-to-install-maven-in-windows/
-
 Create a _maven_ project or use the _pom.xml_ file already created to download/install its dependencies
 
 ## Installation
@@ -52,7 +49,7 @@ Create a _maven_ project or use the _pom.xml_ file already created to download/i
 
 - Clone this repo to your local machine using http or ssh, for example:
 
-`git clone https://github.com/uLucasFraga/restassured_for_beginners.git`
+`git clone https://github.com/uLucasFraga/restassured_for_studies.git`
 
 - Install all dependencies (pom.xml) mvn install and run tests:
 
@@ -75,7 +72,7 @@ Before running the tests we will need:
 
 The valid values are below:
 
-example_values:
+##### example_values:
 ```
 APP_URL=http://localhost:3000
 ENDPOINT_LOGIN=/login
@@ -117,15 +114,15 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 > To run the tests via IDE (IntelliJ)
 
-Right click on project/class on _restassured_for_beginners_ > _Run 'AllTests'_ or _CTRL+F5_
+Right click on project/class on **restassured_for_studies > Run 'AllTests'** or **CTRL+F5**
 
 ---
 
 ## Support
 
 - Twitter at <a href="https://twitter.com/uLucasFraga" target="_blank">`@ulucasfraga`</a>
-- Facebook at <a href="https://www.facebook.com/lucass.fragaa" target="_blank">`Facebook: Lucas Fraga`</a>
-- Linkedin at <a href="https://www.linkedin.com/in/ulucasfraga" target="_blank">`Linkedin: Lucas Fraga`</a>
+- Facebook at <a href="https://www.facebook.com/lucass.fragaa" target="_blank">`my_facebook`</a>
+- Linkedin at <a href="https://www.linkedin.com/in/ulucasfraga" target="_blank">`my_linkedin`</a>
 
 - E-mail: `lucass.fragaa@gmail.com`
 - Skype: `live:lucass.fragaa`
