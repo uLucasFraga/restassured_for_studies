@@ -1,4 +1,4 @@
-package integrations.requests;
+package integrations.commons.requests;
 
 import integrations.client.HttpClient;
 import integrations.commons.HandleProperties;

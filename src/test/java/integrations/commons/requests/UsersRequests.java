@@ -1,4 +1,4 @@
-package integrations.requests;
+package integrations.commons.requests;
 
 import com.github.javafaker.Faker;
 import integrations.client.HttpClient;
