@@ -7,7 +7,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.when;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
-public class UsersContract {
+public class UsersContractTests {
 
   @Test
   public void userSchemaValidator() {

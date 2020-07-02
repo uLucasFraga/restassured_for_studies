@@ -1,51 +1,37 @@
 package integrations.serverest.users;
 
-import com.github.javafaker.Faker;
-import integrations.commons.HandleProperties;
-import io.restassured.http.ContentType;
+import integrations.commons.requests.UsersRequests;
+import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-import org.json.simple.JSONObject;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertEquals;
 
-public class PostUsers {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class PostUsersTests {
 
-  Faker faker = new Faker();
-  String name = faker.name().fullName();
-  String email = faker.internet().emailAddress();
-  String pass = faker.random().hex(5);
+  private static final UsersRequests request = new UsersRequests();
 
   @Test
   public void postCreateUser() {
-    JSONObject requestParams = new JSONObject();
-    requestParams.put("nome", name);
-    requestParams.put("email", email);
-    requestParams.put("password", pass);
-    requestParams.put("administrador", "true");
+    Response response = request.postUsersRequests();
+    assertEquals(HttpStatus.SC_CREATED, response.statusCode());
+    assertEquals("Cadastro realizado com sucesso", response.getBody().jsonPath().get("message"));
+  }
 
-    given()
-        .contentType(ContentType.JSON)
-        .body(requestParams.toJSONString())
-        .when().post(HandleProperties.getValue("APP_URL") + HandleProperties.getValue("ENDPOINT_USERS"))
-        .then().statusCode(HttpStatus.SC_CREATED)
-        .body("message", equalTo("Cadastro realizado com sucesso"));
+  @Test
+  public void postCreateUserFaker() {
+    Response response = request.postUsersFakerRequests();
+    assertEquals(HttpStatus.SC_CREATED, response.statusCode());
+    assertEquals("Cadastro realizado com sucesso", response.getBody().jsonPath().get("message"));
   }
 
   @Test
   public void postEqualUser() {
-    JSONObject requestParams = new JSONObject();
-    requestParams.put("nome", "Lucas Fraga");
-    requestParams.put("email", HandleProperties.getValue("EMAIL_USER"));
-    requestParams.put("password", HandleProperties.getValue("PASSWORD_USER"));
-    requestParams.put("administrador", "true");
-
-    given()
-        .contentType(ContentType.JSON)
-        .body(requestParams.toJSONString())
-        .when().post(HandleProperties.getValue("APP_URL") + HandleProperties.getValue("ENDPOINT_USERS"))
-        .then().statusCode(HttpStatus.SC_BAD_REQUEST)
-        .body("message", equalTo("Este email já está sendo usado"));
+    Response response = request.postUsersRequests();
+    assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
+    assertEquals("Este email já está sendo usado", response.getBody().jsonPath().get("message"));
   }
 }

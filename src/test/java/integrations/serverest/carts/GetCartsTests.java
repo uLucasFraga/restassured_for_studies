@@ -1,17 +1,20 @@
 package integrations.serverest.carts;
 
-import integrations.requests.CartsRequests;
+import integrations.commons.requests.CartsRequests;
 import io.restassured.response.Response;
-import org.junit.Assert;
+import org.apache.http.HttpStatus;
 import org.junit.Test;
 
-public class GetCarts {
+import static org.junit.Assert.assertEquals;
+
+public class GetCartsTests {
 
   private static final CartsRequests request = new CartsRequests();
 
   @Test
   public void getCartsAmount() {
     Response response = request.getCartsRequests();
-    Assert.assertEquals(response.getBody().jsonPath().get("quantidade"), Integer.valueOf(1));
+    assertEquals(HttpStatus.SC_OK, response.statusCode());
+    assertEquals(Integer.valueOf(1), response.getBody().jsonPath().get("quantidade"));
   }
 }

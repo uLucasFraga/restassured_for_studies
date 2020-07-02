@@ -1,51 +1,38 @@
 package integrations.serverest.carts;
 
-import integrations.commons.HandleProperties;
 import integrations.commons.TokenRequest;
-import integrations.requests.CartsRequests;
-import integrations.serverest.login.PostLogin;
+import integrations.commons.requests.CartsRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertEquals;
 
-public class DeleteCarts {
+public class DeleteCartsTests {
 
   private static final CartsRequests request = new CartsRequests();
 
-  @Test
-  public void deleteCarts() {
-    given()
-        .header("Authorization", PostLogin.token)
-        .when()
-        .delete(
-            HandleProperties.getValue("APP_URL")
-                + HandleProperties.getValue("ENDPOINT_PURCHASE_CARTS"))
-        .then()
-        .statusCode(HttpStatus.SC_OK)
-        .body("message", equalTo("Não foi encontrado carrinho para esse usuário"));
-  }
-
-  @Test
-  public void deleteCartsUnauthorized() {
-    when()
-        .delete(
-            HandleProperties.getValue("APP_URL")
-                + HandleProperties.getValue("ENDPOINT_PURCHASE_CARTS"))
-        .then()
-        .statusCode(HttpStatus.SC_UNAUTHORIZED);
+  @Before
+  public void getToken() {
+    TokenRequest.getToken();
   }
 
   @Test
   public void deleteWithoutCarts() {
     Response response = request.deleteCartsRequests(TokenRequest.token);
-    Assert.assertEquals(
-        response.getBody().jsonPath().get("message"),
-        "Não foi encontrado carrinho para esse usuário");
+    assertEquals(HttpStatus.SC_OK, response.statusCode());
+    assertEquals(
+        "Não foi encontrado carrinho para esse usuário",
+        response.getBody().jsonPath().get("message"));
+  }
+
+  @Test
+  public void deleteCartsUnauthorized() {
+    Response response = request.deleteCartsRequests(null);
+    assertEquals(HttpStatus.SC_UNAUTHORIZED, response.statusCode());
+    assertEquals(
+        "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais",
+        response.getBody().jsonPath().get("message"));
   }
 }

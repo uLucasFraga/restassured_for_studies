@@ -1,18 +1,20 @@
 package integrations.serverest.products;
 
-import integrations.commons.HandleProperties;
+import integrations.commons.requests.ProductsRequests;
+import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
 
-import static io.restassured.RestAssured.get;
-import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.Assert.assertEquals;
 
-public class GetProducts {
+public class GetProductsTests {
+
+  private static final ProductsRequests request = new ProductsRequests();
 
   @Test
-  public void getProducts() {
-    get(HandleProperties.getValue("APP_URL") + HandleProperties.getValue("ENDPOINT_PRODUCTS"))
-        .then().statusCode(HttpStatus.SC_OK)
-        .body("quantidade", equalTo(2));
+  public void getProductsAmount() {
+    Response response = request.getProductsRequests();
+    assertEquals(HttpStatus.SC_OK, response.statusCode());
+    assertEquals(Integer.valueOf(2), response.getBody().jsonPath().get("quantidade"));
   }
 }
