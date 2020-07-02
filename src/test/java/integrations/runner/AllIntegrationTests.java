@@ -1,19 +1,19 @@
 package integrations.runner;
 
+import integrations.serverest.carts.DeleteCartsTests;
+import integrations.serverest.carts.GetCartsTests;
+import integrations.serverest.login.PostLoginTests;
+import integrations.serverest.products.GetProductsTests;
+import integrations.serverest.users.PostUsersTests;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import integrations.serverest.carts.DeleteCarts;
-import integrations.serverest.carts.GetCarts;
-import integrations.serverest.login.PostLogin;
-import integrations.serverest.products.GetProducts;
-import integrations.serverest.users.PostUsers;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-  GetCarts.class,
-  GetProducts.class,
-  PostLogin.class,
-  DeleteCarts.class,
-  PostUsers.class,
+  GetCartsTests.class,
+  GetProductsTests.class,
+  PostLoginTests.class,
+  DeleteCartsTests.class,
+  PostUsersTests.class,
 })
 public class AllIntegrationTests {}
