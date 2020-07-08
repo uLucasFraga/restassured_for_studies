@@ -29,14 +29,14 @@ public class PostLoginTests {
 
   @Test
   public void postLoginPasswordInvalid() {
-    Response response = request.postLoginRequest("EMAIL_ADMIN", "PASS_INVALID");
+    Response response = request.postLoginRequest("EMAIL_ADMIN", "PASSWORD_INVALID");
     assertEquals(HttpStatus.SC_UNAUTHORIZED, response.statusCode());
     assertEquals("Email e/ou senha inválidos", response.getBody().jsonPath().get("message"));
   }
 
   @Test
   public void postLoginEmailAndPasswordInvalid() {
-    Response response = request.postLoginRequest("EMAIL_INVALID", "PASS_INVALID");
+    Response response = request.postLoginRequest("EMAIL_INVALID", "PASSWORD_INVALID");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
     assertEquals(
         "\"email\" must be a valid email",
@@ -46,10 +46,8 @@ public class PostLoginTests {
   @Test
   public void postLoginEmailAndWithoutPassword() {
     Response response = request.postLoginRequest("EMAIL_ADMIN", "");
-    assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals(
-        "\"password\" must be a string",
-        response.getBody().jsonPath().get("error.details[0].password"));
+    assertEquals(HttpStatus.SC_UNAUTHORIZED, response.statusCode());
+    assertEquals("Email e/ou senha inválidos", response.getBody().jsonPath().get("message"));
   }
 
   @Test
@@ -57,7 +55,8 @@ public class PostLoginTests {
     Response response = request.postLoginRequest("", "PASSWORD_ADMIN");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
     assertEquals(
-        "\"email\" must be a string", response.getBody().jsonPath().get("error.details[0].email"));
+        "\"email\" must be a valid email",
+        response.getBody().jsonPath().get("error.details[0].email"));
   }
 
   @Test
@@ -65,9 +64,6 @@ public class PostLoginTests {
     Response response = request.postLoginRequest("", "");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
     assertEquals(
-        "\"email\" must be a string", response.getBody().jsonPath().get("error.details[0].email"));
-    assertEquals(
-        "\"password\" must be a string",
-        response.getBody().jsonPath().get("error.details[0].password"));
+        "\"email\" must be a valid email", response.getBody().jsonPath().get("error.details[0].email"));
   }
 }

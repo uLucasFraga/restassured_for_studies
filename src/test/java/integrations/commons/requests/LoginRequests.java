@@ -30,23 +30,5 @@ public class LoginRequests {
             headers,
             requestParams.toJSONString())
         .orElse(null);
-
-  }
-
-  public Response getLoginRequest(String token) {
-    Map<String, String> headers =
-        new HashMap<String, String>() {
-          {
-            put("Content-type", "application/json");
-            put("Authorization", token);
-          }
-        };
-    return httpClient
-        .getHeaders(
-            HandleProperties.getValue("APP_URL"),
-            HandleProperties.getValue("ENDPOINT_LOGIN"),
-            headers)
-        .orElse(null);
-
   }
 }
