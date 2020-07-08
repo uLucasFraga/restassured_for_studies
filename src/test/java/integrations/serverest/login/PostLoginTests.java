@@ -12,7 +12,7 @@ public class PostLoginTests {
   private static final LoginRequests request = new LoginRequests();
 
   @Test
-  public void postLogin() {
+  public void postLoginSuccess() {
     Response response = request.postLoginRequest("EMAIL_ADMIN", "PASSWORD_ADMIN");
     assertEquals(HttpStatus.SC_OK, response.statusCode());
     assertEquals("Login realizado com sucesso", response.getBody().jsonPath().get("message"));
@@ -22,7 +22,9 @@ public class PostLoginTests {
   public void postLoginEmailInvalid() {
     Response response = request.postLoginRequest("EMAIL_INVALID", "PASSWORD_ADMIN");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals("\"email\" must be a valid email", response.getBody().jsonPath().get("error.details[0].email"));
+    assertEquals(
+        "\"email\" must be a valid email",
+        response.getBody().jsonPath().get("error.details[0].email"));
   }
 
   @Test
@@ -36,28 +38,32 @@ public class PostLoginTests {
   public void postLoginEmailAndPasswordInvalid() {
     Response response = request.postLoginRequest("EMAIL_INVALID", "PASSWORD_INVALID");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals("\"email\" must be a valid email", response.getBody().jsonPath().get("error.details[0].email"));
+    assertEquals(
+        "\"email\" must be a valid email",
+        response.getBody().jsonPath().get("error.details[0].email"));
   }
 
   @Test
-  public void postLoginEmailAndEmptyPassword() {
+  public void postLoginEmailAndWithoutPassword() {
     Response response = request.postLoginRequest("EMAIL_ADMIN", "");
-    assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals("\"password\" must be a string", response.getBody().jsonPath().get("error.details[0].password"));
+    assertEquals(HttpStatus.SC_UNAUTHORIZED, response.statusCode());
+    assertEquals("Email e/ou senha inválidos", response.getBody().jsonPath().get("message"));
   }
 
   @Test
-  public void postLoginEmailEmptyAndPassword() {
+  public void postLoginWithoutEmailAndWithPassword() {
     Response response = request.postLoginRequest("", "PASSWORD_ADMIN");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals("\"email\" must be a string", response.getBody().jsonPath().get("error.details[0].email"));
+    assertEquals(
+        "\"email\" must be a valid email",
+        response.getBody().jsonPath().get("error.details[0].email"));
   }
 
   @Test
-  public void postLoginEmptyInvalid() {
+  public void postLoginWithoutEmailAndPassword() {
     Response response = request.postLoginRequest("", "");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals("\"email\" must be a string", response.getBody().jsonPath().get("error.details[0].email"));
-    assertEquals("\"password\" must be a string", response.getBody().jsonPath().get("error.details[0].password"));
+    assertEquals(
+        "\"email\" must be a valid email", response.getBody().jsonPath().get("error.details[0].email"));
   }
 }

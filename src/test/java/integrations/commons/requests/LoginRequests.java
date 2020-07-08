@@ -30,6 +30,5 @@ public class LoginRequests {
             headers,
             requestParams.toJSONString())
         .orElse(null);
-
   }
 }

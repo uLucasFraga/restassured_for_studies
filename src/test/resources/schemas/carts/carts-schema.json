@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "quantidade": {
+      "type": "integer"
+    },
+    "carrinhos": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "produtos": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "idProduto": {
+                      "type": "string"
+                    },
+                    "quantidade": {
+                      "type": "integer"
+                    },
+                    "precoUnitario": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "idProduto",
+                    "quantidade",
+                    "precoUnitario"
+                  ]
+                }
+              ]
+            },
+            "precoTotal": {
+              "type": "integer"
+            },
+            "quantidadeTotal": {
+              "type": "integer"
+            },
+            "idUsuario": {
+              "type": "string"
+            },
+            "_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "produtos",
+            "precoTotal",
+            "quantidadeTotal",
+            "idUsuario",
+            "_id"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "quantidade",
+    "carrinhos"
+  ]
+}

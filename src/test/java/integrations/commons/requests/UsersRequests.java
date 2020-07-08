@@ -61,4 +61,19 @@ public class UsersRequests {
             requestParams.toJSONString())
         .orElse(null);
   }
+
+  public Response getUsersRequests() {
+    Map<String, String> headers =
+        new HashMap<String, String>() {
+          {
+            put("Content-type", "application/json");
+          }
+        };
+    return httpClient
+        .getHeaders(
+            HandleProperties.getValue("APP_URL"),
+            HandleProperties.getValue("ENDPOINT_USERS"),
+            headers)
+        .orElse(null);
+  }
 }
