@@ -134,10 +134,12 @@ Right click on project/class on **restassured_for_studies > Run 'AllTests'** or 
 
 > Especially to friends:
 
-| <a href="https://github.com/rsaccoll" target="_blank">**Ramses Almeida**</a> | <a href="https://github.com/brunobatista25" target="_blank">**Bruno Batista**</a> |
-| :---: |:---:| :---:|
-| [![Ramses Almeida](https://avatars2.githubusercontent.com/u/1155439?s=120&v=2)](https://github.com/rsaccoll)    | [![Bruno Batista](https://avatars3.githubusercontent.com/u/8673550?s=120&u=f5b8959ce612cc376134b68c6d7c14869666d427&v=2)](https://github.com/brunobatista25)    |
-| <a href="https://www.linkedin.com/in/bruno-batista-87734464/" target="_blank">`linkedin/bruno_batista`</a> | <a href="https://www.linkedin.com/in/rsaccoll/" target="_blank">`linkedin/ramses_almeida`</a> |
+| <a href="https://www.linkedin.com/in/rsaccoll/" target="_blank">**Ramses Almeida**</a> | <a href="https://www.linkedin.com/in/bruno-batista-87734464/" target="_blank">**Bruno Batista**</a> | 
+| :---: |:---:|
+| [![Ramses](https://avatars2.githubusercontent.com/u/1155439?s=120&v=2)](https://www.linkedin.com/in/rsaccoll/)    | [![Bruno](https://avatars3.githubusercontent.com/u/8673550?s=120&u=f5b8959ce612cc376134b68c6d7c14869666d427&v=2)](https://www.linkedin.com/in/bruno-batista-87734464/) |
+| <a href="https://github.com/rsaccoll" target="_blank">`github.com/ramses_almeida`</a> | <a href="https://github.com/brunobatista25" target="_blank">`github.com/bruno_batista`</a> |
+
+Thanks for all the support!
 
 ---
 
