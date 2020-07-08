@@ -12,10 +12,10 @@ public class LoginRequests {
 
   HttpClient httpClient = new HttpClient();
 
-  public Response postLoginRequest() {
+  public Response postLoginRequest(String email, String pass) {
     JSONObject requestParams = new JSONObject();
-    requestParams.put("email", HandleProperties.getValue("EMAIL_ADMIN"));
-    requestParams.put("password", HandleProperties.getValue("PASSWORD_ADMIN"));
+    requestParams.put("email", HandleProperties.getValue(email));
+    requestParams.put("password", HandleProperties.getValue(pass));
 
     Map<String, String> headers =
         new HashMap<String, String>() {
@@ -30,5 +30,6 @@ public class LoginRequests {
             headers,
             requestParams.toJSONString())
         .orElse(null);
+
   }
 }
