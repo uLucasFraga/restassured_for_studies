@@ -84,7 +84,7 @@ ENDPOINT_PURCHASE_CARTS=/carrinhos/concluir-compra
 EMAIL_ADMIN=fulano@qa.com
 EMAIL_USER=lucas.fraga@qa.com
 EMAIL_INVALID=invalid
-PASS_INVALID=passinvalid
+PASSWORD_INVALID=passinvalid
 PASSWORD_ADMIN=teste
 PASSWORD_USER=teste@123
 ```
