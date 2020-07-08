@@ -2,7 +2,7 @@
 
 ![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg?branch=master)
 
-Repository with automated test for API using the frameworks: restassured and junit
+Repository with automated tests for API using the frameworks: restassured and junit
 
 > Testing and validating REST services in Java with [RESTASSURED:](https://github.com/rest-assured/rest-assured)
 
@@ -15,8 +15,9 @@ Repository with automated test for API using the frameworks: restassured and jun
 - [Prerequisites](#prerequisites)
 - [Configuration](#configuration)
 - [Installation](#installation)
-- [How to test](#how-to-test)
+- [How to tests](#how-to-test)
 - [Support](#support)
+- [Acknowledgment](#acknowledgment)
 
 ---
 
@@ -63,7 +64,7 @@ Create a _maven_ project or use the _pom.xml_ file already created to download/i
 
 - Use pom.xml to download your new libs and keep the project running via terminal
 
-## How to test
+## How to tests
 
 Before running the tests we will need:
 
@@ -94,15 +95,15 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 > Run all integration tests
 
-`mvn -Dtest=AllIntegrationTests test `
+`mvn -Dtest=AllIntegrationTests tests `
 
 > Run all contract tests
 
-`mvn -Dtest=AllContractTests test `
+`mvn -Dtest=AllContractTests tests `
 
 > Run a single tests
 
-`mvn -Dtest={your_class}#{your_test} test`
+`mvn -Dtest={your_class}#{your_test} tests`
 
 > To clean the project, install the dependencies and run all tests
 
@@ -126,6 +127,19 @@ Right click on project/class on **restassured_for_studies > Run 'AllTests'** or 
 
 - E-mail: `lucass.fragaa@gmail.com`
 - Skype: `live:lucass.fragaa`
+
+---
+
+## Acknowledgment
+
+> Especially to friends:
+
+| <a href="https://www.linkedin.com/in/rsaccoll/" target="_blank">**Ramses Almeida**</a> | <a href="https://www.linkedin.com/in/bruno-batista-87734464/" target="_blank">**Bruno Batista**</a> | 
+| :---: |:---:|
+| [![Ramses](https://avatars2.githubusercontent.com/u/1155439?s=120&v=2)](https://www.linkedin.com/in/rsaccoll/)    | [![Bruno](https://avatars3.githubusercontent.com/u/8673550?s=120&u=f5b8959ce612cc376134b68c6d7c14869666d427&v=2)](https://www.linkedin.com/in/bruno-batista-87734464/) |
+| <a href="https://github.com/rsaccoll" target="_blank">`github.com/ramses_almeida`</a> | <a href="https://github.com/brunobatista25" target="_blank">`github.com/bruno_batista`</a> |
+
+Thanks for all the support!
 
 ---
 
