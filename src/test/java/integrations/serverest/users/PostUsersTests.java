@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PostUsersTests {
 
-  private static final UsersRequests request = new UsersRequests();
+  private final UsersRequests request = new UsersRequests();
 
   Faker faker = new Faker();
   String name = faker.name().fullName();

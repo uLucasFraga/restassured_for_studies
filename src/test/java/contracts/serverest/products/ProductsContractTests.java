@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ProductsContractTests {
 
-  private static final ProductsRequests request = new ProductsRequests();
+  private final ProductsRequests request = new ProductsRequests();
 
   @Test
   public void productSchemaValidator() {

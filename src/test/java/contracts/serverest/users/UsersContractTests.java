@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class UsersContractTests {
 
-  private static final UsersRequests request = new UsersRequests();
+  private final UsersRequests request = new UsersRequests();
 
   @Test
   public void userSchemaValidator() {

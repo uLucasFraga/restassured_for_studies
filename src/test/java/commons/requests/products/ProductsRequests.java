@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 
 public class ProductsRequests {
 
-  HttpClient httpClient = new HttpClient();
+  private final HttpClient httpClient = new HttpClient();
 
   public Response getProductsRequests() {
     return httpClient.get(HandleProperties.getValue("APP_URL"), "/produtos").orElse(null);

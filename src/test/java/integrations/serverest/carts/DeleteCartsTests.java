@@ -12,7 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class DeleteCartsTests {
 
-  private static final CartsRequests request = new CartsRequests();
+  private final CartsRequests request = new CartsRequests();
 
   @Before
   public void getToken() {
