@@ -69,18 +69,12 @@ Create a _maven_ project or use the _pom.xml_ file already created to download/i
 Before running the tests we will need:
 
 - Create a `config.properties` file inside the resources folder and insert valid values
-- Follow the pre-established pattern in the `config.properties.example` file
 
 The valid values are below:
 
 ##### example_values:
 ```
 APP_URL=http://localhost:3000
-ENDPOINT_LOGIN=/login
-ENDPOINT_USERS=/usuarios
-ENDPOINT_CARTS=/carrinhos
-ENDPOINT_PRODUCTS=/produtos
-ENDPOINT_PURCHASE_CARTS=/carrinhos/concluir-compra
 EMAIL_ADMIN=fulano@qa.com
 EMAIL_USER=lucas.fraga@qa.com
 EMAIL_INVALID=invalid
@@ -97,27 +91,23 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 > Run all integration tests
 
-`mvn -Dtest=AllIntegrationTests tests `
+`mvn -Dtest=AllIntegrationIT tests `
 
 > Run all contract tests
 
-`mvn -Dtest=AllContractTests tests `
+`mvn -Dtest=AllContractIT tests `
 
 > Run a single tests
 
 `mvn -Dtest={your_class}#{your_test} tests`
 
-> To clean the project, install the dependencies and run all tests
-
-`mvn clean install`
-
 > To clean the project, install the dependencies and skip all tests
 
-`mvn clean install -DskipTests`
+`mvn clean install -DskipUTs=true -DskipITs=true`
 
 > To run the tests via IDE (IntelliJ)
 
-Right click on project/class on **restassured_for_studies > Run 'AllTests'** or **CTRL+F5**
+Right click on project/class on **restassured_for_studies > Run 'AllIT'** or **CTRL+F5**
 
 ---
 

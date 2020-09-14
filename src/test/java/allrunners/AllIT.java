@@ -10,4 +10,4 @@ import org.junit.runners.Suite;
   AllContractIT.class,
   AllIntegrationIT.class,
 })
-public class AllTestsIT {}
+public class AllIT {}
