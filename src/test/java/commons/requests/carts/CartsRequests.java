@@ -1,20 +1,19 @@
-package integrations.commons.requests;
+package commons.requests.carts;
 
-import integrations.client.HttpClient;
-import integrations.commons.HandleProperties;
+import commons.client.HttpClient;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static commons.HandleProperties.getValue;
+
 public class CartsRequests {
 
-  HttpClient httpClient = new HttpClient();
+  private final HttpClient httpClient = new HttpClient();
 
   public Response getCartsRequests() {
-    return httpClient
-        .get(HandleProperties.getValue("APP_URL"), HandleProperties.getValue("ENDPOINT_CARTS"))
-        .orElse(null);
+    return httpClient.get(getValue("APP_URL"), "/carrinhos").orElse(null);
   }
 
   public Response deleteCartsRequests(String token) {
@@ -26,10 +25,7 @@ public class CartsRequests {
           }
         };
     return httpClient
-        .delete(
-            HandleProperties.getValue("APP_URL"),
-            HandleProperties.getValue("ENDPOINT_PURCHASE_CARTS"),
-            headers)
+        .delete(getValue("APP_URL"), "/carrinhos/concluir-compra", headers)
         .orElse(null);
   }
 }

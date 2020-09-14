@@ -1,7 +1,8 @@
-package integrations.client;
+package commons.client;
 
 import io.restassured.response.Response;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -19,8 +20,21 @@ public class HttpClient {
   }
 
   public Optional<Response> post(
-      final String baseURI, String path, Map<String, String> headers, String body) {
+      final String baseURI, String path, Map<String, String> headers, Map<String, String> body) {
     return postRequest(baseURI, path, headers, body);
+  }
+
+  public Optional<Response> postList(
+      final String baseURI,
+      String path,
+      Map<String, String> headers,
+      List<Map<String, String>> body) {
+    return postListRequest(baseURI, path, headers, body);
+  }
+
+  public Optional<Response> postJsonFile(
+      final String baseURI, String path, Map<String, String> headers, String body) {
+    return postJsonFileRequest(baseURI, path, headers, body);
   }
 
   public Optional<Response> delete(final String baseURI, String path, Map<String, String> headers) {
@@ -30,7 +44,7 @@ public class HttpClient {
   private Optional<Response> getNoHeaders(String baseURI, String path) {
     try {
       Response response =
-          given().baseUri(baseURI).get(path).then().log().all().extract().response();
+          given().relaxedHTTPSValidation().baseUri(baseURI).get(path).then().extract().response();
       return Optional.of(response);
     } catch (Exception e) {
       e.printStackTrace();
@@ -42,12 +56,31 @@ public class HttpClient {
     try {
       Response response =
           given()
+              .relaxedHTTPSValidation()
               .headers(headers)
               .baseUri(baseURI)
               .get(path)
               .then()
-              .log()
-              .all()
+              .extract()
+              .response();
+      return Optional.of(response);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return Optional.empty();
+  }
+
+  private Optional<Response> postListRequest(
+      String baseURI, String path, Map<String, String> headers, List<Map<String, String>> body) {
+    try {
+      Response response =
+          given()
+              .relaxedHTTPSValidation()
+              .headers(headers)
+              .baseUri(baseURI)
+              .body(body)
+              .post(path)
+              .then()
               .extract()
               .response();
       return Optional.of(response);
@@ -58,17 +91,36 @@ public class HttpClient {
   }
 
   private Optional<Response> postRequest(
-      String baseURI, String path, Map<String, String> headers, String body) {
+      String baseURI, String path, Map<String, String> headers, Map<String, String> body) {
     try {
       Response response =
           given()
+              .relaxedHTTPSValidation()
               .headers(headers)
               .baseUri(baseURI)
               .body(body)
               .post(path)
               .then()
-              .log()
-              .all()
+              .extract()
+              .response();
+      return Optional.of(response);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return Optional.empty();
+  }
+
+  private Optional<Response> postJsonFileRequest(
+      String baseURI, String path, Map<String, String> headers, String body) {
+    try {
+      Response response =
+          given()
+              .relaxedHTTPSValidation()
+              .headers(headers)
+              .baseUri(baseURI)
+              .body(body)
+              .post(path)
+              .then()
               .extract()
               .response();
       return Optional.of(response);
@@ -83,12 +135,11 @@ public class HttpClient {
     try {
       Response response =
           given()
+              .relaxedHTTPSValidation()
               .headers(headers)
               .baseUri(baseURI)
               .delete(path)
               .then()
-              .log()
-              .all()
               .extract()
               .response();
       return Optional.of(response);

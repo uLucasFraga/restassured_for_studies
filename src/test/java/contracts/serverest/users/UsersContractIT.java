@@ -1,6 +1,6 @@
 package contracts.serverest.users;
 
-import integrations.commons.requests.UsersRequests;
+import commons.requests.users.UsersRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
@@ -8,9 +8,9 @@ import org.junit.Test;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
-public class UsersContractTests {
+public class UsersContractIT {
 
-  private static final UsersRequests request = new UsersRequests();
+  private final UsersRequests request = new UsersRequests();
 
   @Test
   public void userSchemaValidator() {

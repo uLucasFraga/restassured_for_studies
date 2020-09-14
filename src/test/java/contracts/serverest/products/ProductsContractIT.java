@@ -1,6 +1,6 @@
 package contracts.serverest.products;
 
-import integrations.commons.requests.ProductsRequests;
+import commons.requests.products.ProductsRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
@@ -8,9 +8,9 @@ import org.junit.Test;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
-public class ProductsContractTests {
+public class ProductsContractIT {
 
-  private static final ProductsRequests request = new ProductsRequests();
+  private final ProductsRequests request = new ProductsRequests();
 
   @Test
   public void productSchemaValidator() {
