@@ -1,21 +1,18 @@
-package commons.requests;
+package commons.requests.login;
 
 import commons.client.HttpClient;
-import commons.HandleProperties;
 import io.restassured.response.Response;
-import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static commons.HandleProperties.getValue;
+
 public class LoginRequests {
 
-  HttpClient httpClient = new HttpClient();
+  private final HttpClient httpClient = new HttpClient();
 
-  public Response postLoginRequest(String email, String pass) {
-    JSONObject requestParams = new JSONObject();
-    requestParams.put("email", HandleProperties.getValue(email));
-    requestParams.put("password", HandleProperties.getValue(pass));
+  public Response postLoginRequest(String email, String password) {
 
     Map<String, String> headers =
         new HashMap<String, String>() {
@@ -23,12 +20,15 @@ public class LoginRequests {
             put("Content-type", "application/json");
           }
         };
-    return httpClient
-        .post(
-            HandleProperties.getValue("APP_URL"),
-            HandleProperties.getValue("ENDPOINT_LOGIN"),
-            headers,
-            requestParams.toJSONString())
-        .orElse(null);
+
+    Map<String, String> body =
+        new HashMap<String, String>() {
+          {
+            put("email", email);
+            put("password", password);
+          }
+        };
+
+    return httpClient.post(getValue("APP_URL"), "/login", headers, body).orElse(null);
   }
 }

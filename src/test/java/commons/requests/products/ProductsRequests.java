@@ -1,16 +1,14 @@
-package commons.requests;
+package commons.requests.products;
 
-import commons.client.HttpClient;
 import commons.HandleProperties;
+import commons.client.HttpClient;
 import io.restassured.response.Response;
 
 public class ProductsRequests {
 
-		HttpClient httpClient = new HttpClient();
+  HttpClient httpClient = new HttpClient();
 
-		public Response getProductsRequests() {
-				return httpClient
-								.get(HandleProperties.getValue("APP_URL"), HandleProperties.getValue("ENDPOINT_PRODUCTS"))
-								.orElse(null);
-		}
+  public Response getProductsRequests() {
+    return httpClient.get(HandleProperties.getValue("APP_URL"), "/produtos").orElse(null);
+  }
 }

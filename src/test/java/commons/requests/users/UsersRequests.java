@@ -1,29 +1,18 @@
-package commons.requests;
+package commons.requests.users;
 
-import com.github.javafaker.Faker;
 import commons.client.HttpClient;
-import commons.HandleProperties;
 import io.restassured.response.Response;
-import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import static commons.HandleProperties.getValue;
+
 public class UsersRequests {
 
-  HttpClient httpClient = new HttpClient();
+  private final HttpClient httpClient = new HttpClient();
 
-  Faker faker = new Faker();
-  String name = faker.name().fullName();
-  String email = faker.internet().emailAddress();
-  String pass = faker.random().hex(5);
-
-  public Response postUsersRequests() {
-    JSONObject requestParams = new JSONObject();
-    requestParams.put("nome", "Lucas Fraga");
-    requestParams.put("email", HandleProperties.getValue("EMAIL_USER"));
-    requestParams.put("password", HandleProperties.getValue("PASSWORD_USER"));
-    requestParams.put("administrador", "true");
+  public Response postUsersRequests(String name, String email, String password) {
 
     Map<String, String> headers =
         new HashMap<String, String>() {
@@ -31,35 +20,17 @@ public class UsersRequests {
             put("Content-type", "application/json");
           }
         };
-    return httpClient
-        .post(
-            HandleProperties.getValue("APP_URL"),
-            HandleProperties.getValue("ENDPOINT_USERS"),
-            headers,
-            requestParams.toJSONString())
-        .orElse(null);
-  }
 
-  public Response postUsersFakerRequests() {
-    JSONObject requestParams = new JSONObject();
-    requestParams.put("nome", name);
-    requestParams.put("email", email);
-    requestParams.put("password", pass);
-    requestParams.put("administrador", "true");
-
-    Map<String, String> headers =
+    Map<String, String> body =
         new HashMap<String, String>() {
           {
-            put("Content-type", "application/json");
+            put("nome", name);
+            put("email", email);
+            put("password", password);
+            put("administrador", "true");
           }
         };
-    return httpClient
-        .post(
-            HandleProperties.getValue("APP_URL"),
-            HandleProperties.getValue("ENDPOINT_USERS"),
-            headers,
-            requestParams.toJSONString())
-        .orElse(null);
+    return httpClient.post(getValue("APP_URL"), "/usuarios", headers, body).orElse(null);
   }
 
   public Response getUsersRequests() {
@@ -69,11 +40,7 @@ public class UsersRequests {
             put("Content-type", "application/json");
           }
         };
-    return httpClient
-        .getHeaders(
-            HandleProperties.getValue("APP_URL"),
-            HandleProperties.getValue("ENDPOINT_USERS"),
-            headers)
-        .orElse(null);
+
+    return httpClient.getHeaders(getValue("APP_URL"), "/usuarios", headers).orElse(null);
   }
 }
