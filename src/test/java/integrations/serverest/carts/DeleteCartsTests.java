@@ -1,12 +1,13 @@
 package integrations.serverest.carts;
 
-import integrations.commons.TokenRequest;
-import integrations.commons.requests.CartsRequests;
+import commons.requests.TokenRequest;
+import commons.requests.carts.CartsRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 
+import static commons.HandleProperties.getValue;
 import static org.junit.Assert.assertEquals;
 
 public class DeleteCartsTests {
@@ -15,7 +16,8 @@ public class DeleteCartsTests {
 
   @Before
   public void getToken() {
-    TokenRequest.getToken();
+    TokenRequest request = new TokenRequest();
+    request.getToken(getValue("EMAIL_ADMIN"), getValue("PASSWORD_ADMIN"));
   }
 
   @Test

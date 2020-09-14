@@ -1,6 +1,6 @@
 package contracts.serverest.products;
 
-import integrations.commons.requests.ProductsRequests;
+import commons.requests.products.ProductsRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;

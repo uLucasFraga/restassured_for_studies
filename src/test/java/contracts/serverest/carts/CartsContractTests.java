@@ -1,6 +1,6 @@
 package contracts.serverest.carts;
 
-import integrations.commons.requests.CartsRequests;
+import commons.requests.carts.CartsRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;

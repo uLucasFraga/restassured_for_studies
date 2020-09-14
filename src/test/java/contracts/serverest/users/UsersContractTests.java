@@ -1,6 +1,6 @@
 package contracts.serverest.users;
 
-import integrations.commons.requests.UsersRequests;
+import commons.requests.users.UsersRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
