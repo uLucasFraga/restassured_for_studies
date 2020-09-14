@@ -1,8 +1,8 @@
-package integrations.commons.requests;
+package commons.requests;
 
 import com.github.javafaker.Faker;
-import integrations.client.HttpClient;
-import integrations.commons.HandleProperties;
+import commons.client.HttpClient;
+import commons.HandleProperties;
 import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 
