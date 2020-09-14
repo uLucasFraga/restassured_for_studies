@@ -10,7 +10,7 @@ import org.junit.Test;
 import static commons.HandleProperties.getValue;
 import static org.junit.Assert.assertEquals;
 
-public class DeleteCartsTests {
+public class DeleteCartsIT {
 
   private final CartsRequests request = new CartsRequests();
 

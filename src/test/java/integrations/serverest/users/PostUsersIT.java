@@ -12,7 +12,7 @@ import static commons.HandleProperties.getValue;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class PostUsersTests {
+public class PostUsersIT {
 
   private final UsersRequests request = new UsersRequests();
 

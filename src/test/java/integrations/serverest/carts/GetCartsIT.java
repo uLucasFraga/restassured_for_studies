@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GetCartsTests {
+public class GetCartsIT {
 
   private final CartsRequests request = new CartsRequests();
 

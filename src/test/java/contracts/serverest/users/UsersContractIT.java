@@ -8,7 +8,7 @@ import org.junit.Test;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.junit.Assert.assertEquals;
 
-public class UsersContractTests {
+public class UsersContractIT {
 
   private final UsersRequests request = new UsersRequests();
 

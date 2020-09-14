@@ -7,4 +7,4 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({UsersContractIT.class, CartsContractIT.class, UsersContractIT.class})
-public class AllContractTests {}
+public class AllContractIT {}

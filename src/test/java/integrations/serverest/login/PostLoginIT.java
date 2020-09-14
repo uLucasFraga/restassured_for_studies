@@ -8,7 +8,7 @@ import org.junit.Test;
 import static commons.HandleProperties.getValue;
 import static org.junit.Assert.assertEquals;
 
-public class PostLoginTests {
+public class PostLoginIT {
 
   private final LoginRequests request = new LoginRequests();
 
