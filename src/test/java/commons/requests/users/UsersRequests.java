@@ -34,6 +34,7 @@ public class UsersRequests {
   }
 
   public Response getUsersRequests() {
+
     Map<String, String> headers =
         new HashMap<String, String>() {
           {
@@ -42,5 +43,24 @@ public class UsersRequests {
         };
 
     return httpClient.getHeaders(getValue("APP_URL"), "/usuarios", headers).orElse(null);
+  }
+
+  public Response getUsersQueryParamRequests(String key, String value) {
+
+    Map<String, String> headers =
+        new HashMap<String, String>() {
+          {
+            put("Content-type", "application/json");
+          }
+        };
+
+    Map<String, String> params =
+        new HashMap<String, String>() {
+          {
+            put(key, value);
+          }
+        };
+
+    return httpClient.getQuery(getValue("APP_URL"), "/usuarios", headers, params).orElse(null);
   }
 }
