@@ -19,6 +19,11 @@ public class HttpClient {
     return getNoHeaders(baseURI, path);
   }
 
+  public Optional<Response> getQuery(
+      final String baseURI, String path, Map<String, String> headers, Map<String, String> params) {
+    return getQueryParamRequest(baseURI, path, headers, params);
+  }
+
   public Optional<Response> post(
       final String baseURI, String path, Map<String, String> headers, Map<String, String> body) {
     return postRequest(baseURI, path, headers, body);
@@ -58,6 +63,26 @@ public class HttpClient {
           given()
               .relaxedHTTPSValidation()
               .headers(headers)
+              .baseUri(baseURI)
+              .get(path)
+              .then()
+              .extract()
+              .response();
+      return Optional.of(response);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return Optional.empty();
+  }
+
+  private Optional<Response> getQueryParamRequest(
+      String baseURI, String path, Map<String, String> headers, Map<String, String> params) {
+    try {
+      Response response =
+          given()
+              .relaxedHTTPSValidation()
+              .headers(headers)
+              .queryParams(params)
               .baseUri(baseURI)
               .get(path)
               .then()
