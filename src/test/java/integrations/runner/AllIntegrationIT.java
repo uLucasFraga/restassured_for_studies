@@ -6,6 +6,7 @@ import integrations.serverest.login.PostLoginIT;
 import integrations.serverest.products.GetProductsIT;
 import integrations.serverest.users.GetUsersIT;
 import integrations.serverest.users.PostUsersIT;
+import integrations.serverest.users.PutUsersIT;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -14,8 +15,9 @@ import org.junit.runners.Suite;
   GetUsersIT.class,
   GetCartsIT.class,
   GetProductsIT.class,
-  PostLoginIT.class,
   DeleteCartsIT.class,
+  PostLoginIT.class,
   PostUsersIT.class,
+  PutUsersIT.class
 })
 public class AllIntegrationIT {}
