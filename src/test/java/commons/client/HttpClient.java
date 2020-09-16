@@ -19,6 +19,11 @@ public class HttpClient {
     return getNoHeaders(baseURI, path);
   }
 
+  public Optional<Response> getQuery(
+      final String baseURI, String path, Map<String, String> headers, Map<String, String> params) {
+    return getQueryParamRequest(baseURI, path, headers, params);
+  }
+
   public Optional<Response> post(
       final String baseURI, String path, Map<String, String> headers, Map<String, String> body) {
     return postRequest(baseURI, path, headers, body);
@@ -35,6 +40,11 @@ public class HttpClient {
   public Optional<Response> postJsonFile(
       final String baseURI, String path, Map<String, String> headers, String body) {
     return postJsonFileRequest(baseURI, path, headers, body);
+  }
+
+  public Optional<Response> put(
+      final String baseURI, String path, Map<String, String> headers, Map<String, String> body) {
+    return putRequest(baseURI, path, headers, body);
   }
 
   public Optional<Response> delete(final String baseURI, String path, Map<String, String> headers) {
@@ -70,16 +80,16 @@ public class HttpClient {
     return Optional.empty();
   }
 
-  private Optional<Response> postListRequest(
-      String baseURI, String path, Map<String, String> headers, List<Map<String, String>> body) {
+  private Optional<Response> getQueryParamRequest(
+      String baseURI, String path, Map<String, String> headers, Map<String, String> params) {
     try {
       Response response =
           given()
               .relaxedHTTPSValidation()
               .headers(headers)
+              .queryParams(params)
               .baseUri(baseURI)
-              .body(body)
-              .post(path)
+              .get(path)
               .then()
               .extract()
               .response();
@@ -120,6 +130,46 @@ public class HttpClient {
               .baseUri(baseURI)
               .body(body)
               .post(path)
+              .then()
+              .extract()
+              .response();
+      return Optional.of(response);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return Optional.empty();
+  }
+
+  private Optional<Response> postListRequest(
+      String baseURI, String path, Map<String, String> headers, List<Map<String, String>> body) {
+    try {
+      Response response =
+          given()
+              .relaxedHTTPSValidation()
+              .headers(headers)
+              .baseUri(baseURI)
+              .body(body)
+              .post(path)
+              .then()
+              .extract()
+              .response();
+      return Optional.of(response);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return Optional.empty();
+  }
+
+  private Optional<Response> putRequest(
+      String baseURI, String path, Map<String, String> headers, Map<String, String> body) {
+    try {
+      Response response =
+          given()
+              .relaxedHTTPSValidation()
+              .headers(headers)
+              .baseUri(baseURI)
+              .body(body)
+              .put(path)
               .then()
               .extract()
               .response();

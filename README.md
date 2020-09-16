@@ -68,7 +68,8 @@ Create a _maven_ project or use the _pom.xml_ file already created to download/i
 
 Before running the tests we will need:
 
-- Create a `config.properties` file inside the resources folder and insert valid values
+- Create a `config.properties` file inside the *resources folder* and insert valid values
+- For example: `config.properties.example`
 
 The valid values are below:
 
