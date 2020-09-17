@@ -49,7 +49,7 @@ public class PostLoginIT {
     Response response = request.postLoginRequest(getValue("EMAIL_ADMIN"), "");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
     assertEquals(
-        "\"password\" is not allowed to be empty", response.getBody().jsonPath().get("password"));
+        "password não pode ficar em branco", response.getBody().jsonPath().get("password"));
   }
 
   @Test
@@ -57,7 +57,7 @@ public class PostLoginIT {
     Response response = request.postLoginRequest("", getValue("PASSWORD_ADMIN"));
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
     assertEquals(
-        "\"email\" is not allowed to be empty", response.getBody().jsonPath().get("email"));
+        "email não pode ficar em branco", response.getBody().jsonPath().get("email"));
   }
 
   @Test
@@ -65,8 +65,8 @@ public class PostLoginIT {
     Response response = request.postLoginRequest("", "");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
     assertEquals(
-        "\"email\" is not allowed to be empty", response.getBody().jsonPath().get("email"));
+        "email não pode ficar em branco", response.getBody().jsonPath().get("email"));
     assertEquals(
-        "\"password\" is not allowed to be empty", response.getBody().jsonPath().get("password"));
+        "password não pode ficar em branco", response.getBody().jsonPath().get("password"));
   }
 }
