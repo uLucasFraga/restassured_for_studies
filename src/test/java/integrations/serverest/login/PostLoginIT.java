@@ -56,16 +56,14 @@ public class PostLoginIT {
   public void postLoginWithoutEmailAndWithPassword() {
     Response response = request.postLoginRequest("", getValue("PASSWORD_ADMIN"));
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals(
-        "email não pode ficar em branco", response.getBody().jsonPath().get("email"));
+    assertEquals("email não pode ficar em branco", response.getBody().jsonPath().get("email"));
   }
 
   @Test
   public void postLoginWithoutEmailAndPassword() {
     Response response = request.postLoginRequest("", "");
     assertEquals(HttpStatus.SC_BAD_REQUEST, response.statusCode());
-    assertEquals(
-        "email não pode ficar em branco", response.getBody().jsonPath().get("email"));
+    assertEquals("email não pode ficar em branco", response.getBody().jsonPath().get("email"));
     assertEquals(
         "password não pode ficar em branco", response.getBody().jsonPath().get("password"));
   }
