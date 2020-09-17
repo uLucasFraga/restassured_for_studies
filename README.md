@@ -1,6 +1,6 @@
 # RESTASSURED-FOR-STUDIES
 
-![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg?branch=master)
+![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg)
 
 Repository with automated tests for API using the frameworks: restassured and junit
 
