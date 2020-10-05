@@ -1,6 +1,7 @@
 # RESTASSURED-FOR-STUDIES
 
 ![QA CI/CD](https://github.com/uLucasFraga/restassured_for_studies/workflows/QA%20CI/CD/badge.svg)
+[![ServeRest API](https://img.shields.io/badge/API-ServeRest-green)](https://github.com/PauloGoncalvesBH/ServeRest/)
 
 Repository with automated tests for API using the frameworks: restassured and junit
 
@@ -86,7 +87,7 @@ PASSWORD_USER=teste@123
 ###### NOTE:
 This data is exposed but as a good practice (security of sensitive data) it would be interesting not to upload (via .gitignore) the file `config.properties` to the project.
 
-> UP the server_rest to perform the tests
+> UP the ServeRest to perform the tests
 
 `npx serverest -t 10000`
 
