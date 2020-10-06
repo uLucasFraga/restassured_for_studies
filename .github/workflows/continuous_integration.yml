@@ -1,6 +1,11 @@
-name: QA CI/CD
+name: CONTINUOUS INTEGRATION
 
-on: [push]
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -8,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java-version: [11.x]
+        java-version: [8]
         node-version: [8]
 
     steps:
@@ -17,10 +22,10 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java-version }}
-      - name: prepare tests
-        run: docker run -d -p 3000:3000 paulogoncalvesbh/serverest:latest
       - name: build project
         run: mvn clean install -DskipUTs=true -DskipITs=true
+      - name: prepare tests
+        run: docker run -d -p 3000:3000 paulogoncalvesbh/serverest:latest
       - name: exec contract tests
         run: mvn clean test-compile -Dit.test=AllContractIT verify -DskipUTs=true
       - name: exec integration tests
