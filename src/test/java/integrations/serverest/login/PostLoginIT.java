@@ -1,12 +1,12 @@
 package integrations.serverest.login;
 
+import static commons.HandleProperties.getValue;
+import static org.junit.Assert.assertEquals;
+
 import commons.requests.login.LoginRequests;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
-
-import static commons.HandleProperties.getValue;
-import static org.junit.Assert.assertEquals;
 
 public class PostLoginIT {
 
