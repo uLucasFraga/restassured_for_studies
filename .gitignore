@@ -292,6 +292,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Report
+allure-results/
+
 # Adding other options
 .idea/
 .scripts/
