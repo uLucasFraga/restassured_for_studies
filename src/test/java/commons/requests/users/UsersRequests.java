@@ -86,6 +86,18 @@ public class UsersRequests {
     return httpClient.put(getValue("APP_URL"), "/usuarios/" + _id, headers, body).orElse(null);
   }
 
+  public Response deleteUsersRequests(String _id) {
+
+    Map<String, String> headers =
+        new HashMap<String, String>() {
+          {
+            put("Content-type", "application/json");
+          }
+        };
+
+    return httpClient.delete(getValue("APP_URL"), "/usuarios/" + _id, headers).orElse(null);
+  }
+
   public void getUserId(String name, String email, String password) {
     Response response = postUsersRequests(name, email, password);
     _id = response.getBody().jsonPath().get("_id").toString();
