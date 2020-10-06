@@ -18,7 +18,7 @@ jobs:
         with:
           java-version: ${{ matrix.java-version }}
       - name: prepare tests
-        run: docker run -t 5000 & -d -p 3000:3000 paulogoncalvesbh/serverest:latest
+        run: docker run -d -p 3000:3000 paulogoncalvesbh/serverest:latest
       - name: build project
         run: mvn clean install -DskipUTs=true -DskipITs=true
       - name: exec contract tests
