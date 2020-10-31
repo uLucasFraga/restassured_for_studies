@@ -67,4 +67,10 @@ public class PostLoginIT {
     assertEquals(
         "password não pode ficar em branco", response.getBody().jsonPath().get("password"));
   }
+
+  @Test
+  public void postLoginWithJsonFile() {
+    Response response = request.postLoginJsonRequest();
+    assertEquals(HttpStatus.SC_OK, response.statusCode());
+  }
 }

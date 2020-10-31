@@ -1,12 +1,14 @@
 package commons.requests.login;
 
-import commons.client.HttpClient;
-import io.restassured.response.Response;
+import static commons.HandleProperties.getValue;
 
+import commons.TemplatesJson;
+import commons.client.HttpClient;
+import integrations.serverest.login.PostLoginIT;
+import integrations.serverest.login.TemplateLogin;
+import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
-
-import static commons.HandleProperties.getValue;
 
 public class LoginRequests {
 
@@ -30,5 +32,24 @@ public class LoginRequests {
         };
 
     return httpClient.post(getValue("APP_URL"), "/login", headers, body).orElse(null);
+  }
+
+  public Response postLoginJsonRequest() {
+    TemplateLogin params = TemplateLogin.builder().email("fulano@qa.com").password("teste").build();
+
+    Map<String, String> headers =
+        new HashMap<String, String>() {
+          {
+            put("Content-Type", "application/json");
+          }
+        };
+
+    return httpClient
+        .postJsonFile(
+            getValue("APP_URL"),
+            "/login",
+            headers,
+            TemplatesJson.getModel("loginResources/login.json", params, PostLoginIT.class))
+        .orElse(null);
   }
 }
