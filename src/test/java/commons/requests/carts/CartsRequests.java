@@ -1,12 +1,11 @@
 package commons.requests.carts;
 
+import static commons.HandleProperties.getValue;
+
 import commons.client.HttpClient;
 import io.restassured.response.Response;
-
 import java.util.HashMap;
 import java.util.Map;
-
-import static commons.HandleProperties.getValue;
 
 public class CartsRequests {
 

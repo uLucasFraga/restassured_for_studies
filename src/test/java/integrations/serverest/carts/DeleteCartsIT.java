@@ -1,28 +1,30 @@
 package integrations.serverest.carts;
 
+import static commons.HandleProperties.getValue;
+import static org.junit.Assert.assertEquals;
+
 import commons.requests.TokenRequest;
 import commons.requests.carts.CartsRequests;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
 
-import static commons.HandleProperties.getValue;
-import static org.junit.Assert.assertEquals;
-
+@DisplayName("TESTES DE INTEGRAÇÃO")
 public class DeleteCartsIT {
 
   private final CartsRequests request = new CartsRequests();
+  private final TokenRequest tokenRequest = new TokenRequest();
 
   @Before
   public void getToken() {
-    TokenRequest request = new TokenRequest();
-    request.getToken(getValue("EMAIL_ADMIN"), getValue("PASSWORD_ADMIN"));
+    tokenRequest.requestToken("/login", getValue("EMAIL_ADMIN"), getValue("PASSWORD_ADMIN"));
   }
 
   @Test
   public void deleteWithoutCarts() {
-    Response response = request.deleteCartsRequests(TokenRequest.token);
+    Response response = request.deleteCartsRequests(tokenRequest.token);
     assertEquals(HttpStatus.SC_OK, response.statusCode());
     assertEquals(
         "Não foi encontrado carrinho para esse usuário",

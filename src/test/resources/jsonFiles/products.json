@@ -1,0 +1,6 @@
+{
+  "nome": "${params.nome}",
+  "preco": "${params.preco}",
+  "descricao": "${params.descricao}",
+  "quantidade": "${params.quantidade}"
+}

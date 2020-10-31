@@ -1,0 +1,4 @@
+{
+  "email": "${params.email}",
+  "password": "${params.password}"
+}
