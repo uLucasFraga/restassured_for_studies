@@ -18,7 +18,6 @@ Repository with automated tests for API using the frameworks: restassured and ju
 - [Installation](#installation)
 - [How to tests](#how-to-test)
 - [Support](#support)
-- [Acknowledgment](#acknowledgment)
 
 ---
 
@@ -128,19 +127,6 @@ if there is new data, the tests will break.
 
 - E-mail: `lucass.fragaa@gmail.com`
 - Skype: `live:lucass.fragaa`
-
----
-
-## Acknowledgment
-
-> Especially to friends:
-
-| <a href="https://www.linkedin.com/in/rsaccoll/" target="_blank">**Ramses Almeida**</a> | <a href="https://www.linkedin.com/in/bruno-batista-87734464/" target="_blank">**Bruno Batista**</a> | 
-| :---: |:---:|
-| [![Ramses](https://avatars2.githubusercontent.com/u/1155439?s=120&v=2)](https://www.linkedin.com/in/rsaccoll/)    | [![Bruno](https://avatars3.githubusercontent.com/u/8673550?s=120&u=f5b8959ce612cc376134b68c6d7c14869666d427&v=2)](https://www.linkedin.com/in/bruno-batista-87734464/) |
-| <a href="https://github.com/rsaccoll" target="_blank">`github.com/ramses_almeida`</a> | <a href="https://github.com/brunobatista25" target="_blank">`github.com/bruno_batista`</a> |
-
-Thanks for all the support!
 
 ---
 
