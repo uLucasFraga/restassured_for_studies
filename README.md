@@ -113,7 +113,7 @@ Right click on project/class on **restassured_for_studies > Run 'AllIT'** or **C
 ###### IMPORTANT:
 As the repository is **only for studies**,
 
-the tests only pass with the serverest (empty/clean),
+the tests only pass with the serverest: empty and clean,
 
 if there is new data, the tests will break.
 
