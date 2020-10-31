@@ -111,6 +111,13 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 Right click on project/class on **restassured_for_studies > Run 'AllIT'** or **CTRL+F5**
 
+###### IMPORTANT:
+As the repository is **only for studies**,
+
+the tests only pass with the serverest (empty/clean),
+
+if there is new data, the tests will break.
+
 ---
 
 ## Support

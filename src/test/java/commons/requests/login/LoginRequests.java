@@ -2,10 +2,9 @@ package commons.requests.login;
 
 import static commons.HandleProperties.getValue;
 
-import commons.TemplatesJson;
 import commons.client.HttpClient;
+import commons.client.TemplatesJson;
 import integrations.serverest.login.PostLoginIT;
-import integrations.serverest.login.TemplateLogin;
 import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +13,7 @@ public class LoginRequests {
 
   private final HttpClient httpClient = new HttpClient();
 
-  public Response postLoginRequest(String email, String password) {
+  public Response postLoginRequest(String endpoint, String email, String password) {
 
     Map<String, String> headers =
         new HashMap<String, String>() {
@@ -31,11 +30,12 @@ public class LoginRequests {
           }
         };
 
-    return httpClient.post(getValue("APP_URL"), "/login", headers, body).orElse(null);
+    return httpClient.post(getValue("APP_URL"), endpoint, headers, body).orElse(null);
   }
 
-  public Response postLoginJsonRequest() {
-    TemplateLogin params = TemplateLogin.builder().email("fulano@qa.com").password("teste").build();
+  public Response postLoginJsonRequest(String endpoint, String email, String password) {
+
+    LoginData params = LoginData.builder().email(email).password(password).build();
 
     Map<String, String> headers =
         new HashMap<String, String>() {
@@ -47,9 +47,9 @@ public class LoginRequests {
     return httpClient
         .postJsonFile(
             getValue("APP_URL"),
-            "/login",
+            endpoint,
             headers,
-            TemplatesJson.getModel("loginResources/login.json", params, PostLoginIT.class))
+            TemplatesJson.getModel("/login.json", params, PostLoginIT.class))
         .orElse(null);
   }
 }

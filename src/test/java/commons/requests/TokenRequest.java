@@ -5,11 +5,15 @@ import io.restassured.response.Response;
 
 public class TokenRequest {
 
-  public static String token;
-  private final LoginRequests request = new LoginRequests();
+  private final LoginRequests requests = new LoginRequests();
+  public String token;
 
-  public void getToken(String email, String password) {
-    Response response = request.postLoginRequest(email, password);
+  public void requestToken(String endpoint, String email, String password) {
+    Response response = requests.postLoginRequest(endpoint, email, password);
     token = response.getBody().jsonPath().get("authorization").toString();
+  }
+
+  public String getToken() {
+    return this.token;
   }
 }

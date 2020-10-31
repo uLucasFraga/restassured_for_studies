@@ -1,4 +1,4 @@
-package commons;
+package commons.client;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

@@ -2,6 +2,7 @@ package integrations.serverest.users;
 
 import com.github.javafaker.Faker;
 import commons.requests.users.UsersRequests;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
@@ -10,6 +11,7 @@ import org.junit.Test;
 import static commons.requests.users.UsersRequests._id;
 import static org.junit.Assert.assertEquals;
 
+@DisplayName("TESTES DE INTEGRAÇÃO")
 public class DeleteUsersIT {
 
   private final UsersRequests request = new UsersRequests();

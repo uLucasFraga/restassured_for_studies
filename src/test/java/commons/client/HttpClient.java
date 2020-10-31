@@ -1,12 +1,11 @@
 package commons.client;
 
-import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
 
+import io.restassured.response.Response;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-import static io.restassured.RestAssured.given;
 
 public class HttpClient {
 
