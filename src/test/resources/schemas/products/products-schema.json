@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "quantidade": {
-      "type": "string"
+      "type": "integer"
     },
     "produtos": {
       "type": "array",
