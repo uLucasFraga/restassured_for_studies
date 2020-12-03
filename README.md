@@ -92,15 +92,15 @@ This data is exposed but as a good practice (security of sensitive data) it woul
 
 > Run all integration tests
 
-`mvn -Dtest=AllIntegrationIT tests `
+`mvn -Dtest=AllIntegrationIT test`
 
 > Run all contract tests
 
-`mvn -Dtest=AllContractIT tests `
+`mvn -Dtest=AllContractIT test`
 
 > Run a single tests
 
-`mvn -Dtest={your_class}#{your_test} tests`
+`mvn -Dtest={your_class}#{your_test} test`
 
 > To clean the project, install the dependencies and skip all tests
 
